@@ -48,9 +48,6 @@ local notification = {
 
 StarterGui:SetCore("SendNotification", notification)
 
-
-wait(3)
-
 local textBoxText = ""
 
 
