@@ -1030,7 +1030,7 @@ local TweenService = game:GetService("TweenService")
 
 
 local gui = Instance.new("ScreenGui")
-gui.Parent = game.Players.LocalPlayer.PlayerGui
+gui.Parent = game:GetService("CoreGui")
 gui.ResetOnSpawn = false
 
 
@@ -1042,6 +1042,8 @@ frame.BackgroundColor3 = Color3.new(1, 1, 1) -- Set the background color to whit
 frame.BorderColor3 = Color3.new(0, 0, 0) -- Set the border color to black
 frame.BorderSizePixel = 2 -- Set the border size to 2 pixels
 frame.Parent = gui
+frame.ZIndex = 200
+
 
 
 local targetSize = UDim2.new(0, 300, 0, 200)
@@ -1065,6 +1067,7 @@ titleLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 titleLabel.BorderColor3 = Color3.new(0, 0, 0)
 titleLabel.BorderSizePixel = 2
 titleLabel.Parent = frame
+titleLabel.ZIndex = 201
 
 
 local scrollingFrame = Instance.new("ScrollingFrame")
@@ -1073,6 +1076,7 @@ scrollingFrame.Position = UDim2.new(0, 0, 0, 30)
 scrollingFrame.BackgroundTransparency = 1 
 scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 200) 
 scrollingFrame.Parent = frame
+scrollingFrame.ZIndex = 201
 
 
 local textLabel = Instance.new("TextLabel")
@@ -1084,6 +1088,7 @@ textLabel.TextYAlignment = Enum.TextYAlignment.Top
 textLabel.Size = UDim2.new(1, 0, 1, 0)
 textLabel.BackgroundTransparency = 1
 textLabel.Parent = scrollingFrame
+textLabel.ZIndex = 202
 
 
 local closeButton = Instance.new("TextButton")
@@ -1097,6 +1102,7 @@ closeButton.BackgroundColor3 = Color3.new(1, 1, 1)
 closeButton.BorderColor3 = Color3.new(0, 0, 0) 
 closeButton.BorderSizePixel = 2
 closeButton.Parent = frame
+closeButton.ZIndex = 201
 
 
 local function closeGui()
