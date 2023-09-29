@@ -49,20 +49,7 @@ local notification = {
 StarterGui:SetCore("SendNotification", notification)
 
 
-local StarterGui = game:GetService("StarterGui")
-
-wait(1)
-
-local notification = {
-    Title = "Private",
-    Text = "Exclusive Mode",
-    Icon = "rbxassetid://1234567890" 
-}
-
-wait(5)
-
-
-StarterGui:SetCore("SendNotification", notification)
+wait(3)
 
 local textBoxText = ""
 
@@ -73,13 +60,6 @@ screenGui.ResetOnSpawn = false
 
 
 local StarterGui = game:GetService("StarterGui")
-
-
-local notification = {
-    Title = "Note",
-    Text = "Releasing after 2 updates",
-    Icon = "rbxassetid://1234567890" 
-}
 
 
 StarterGui:SetCore("SendNotification", notification)
