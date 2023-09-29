@@ -58,13 +58,6 @@ local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game:GetService("CoreGui")
 screenGui.ResetOnSpawn = false
 
-
-local StarterGui = game:GetService("StarterGui")
-
-
-StarterGui:SetCore("SendNotification", notification)
-
-
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0.5, 0, 0.5, 0)
 frame.Position = UDim2.new(0.25, 0, 0.25, 0)
