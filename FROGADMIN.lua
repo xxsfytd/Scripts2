@@ -852,6 +852,16 @@ StarterGui:SetCore("SendNotification", notification)
         warn("Failed to load the r6 anim script: " .. result)
     end 
     
+    elseif text == "rtx shader" then
+    --  R6 Anim script
+    local success, result = pcall(function()
+        return loadstring(game:HttpGet(('https://pastefy.app/xXkUxA0P/raw'),true))()
+    end)
+
+    if not success then
+        warn("Failed to load the r6 anim script: " .. result)
+    end 
+    
     
     
    
@@ -984,7 +994,8 @@ StarterGui:SetCore("SendNotification", notification)
         "F3x (Visual)", 
         "Touchinterests (gui)", 
         "R6", 
-        "Hitbox Expander"
+        "Hitbox Expander", 
+        "RTX Shader (gui)"
     }
     
     
@@ -1015,7 +1026,7 @@ end)
 wait(1) 
 
 local commands = {
-    "Added Hitbox Expander", 
+    "Added RTX Shader", 
     "Updated Locatormp"
     
 }
