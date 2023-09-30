@@ -1015,7 +1015,8 @@ end)
 wait(1) 
 
 local commands = {
-    "Hitbox Expander", 
+    "Added Hitbox Expander", 
+    "Updated Locatormp"
     
 }
 
@@ -1023,7 +1024,7 @@ table.sort(commands)
 
 local formattedCommands = ""
 for _, command in ipairs(commands) do
-    formattedCommands = formattedCommands .. "Added - " .. command .. "\n"
+    formattedCommands = formattedCommands .. "• " .. command .. "\n"
 end
 
 local TweenService = game:GetService("TweenService")
