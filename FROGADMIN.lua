@@ -30,12 +30,24 @@
 --██╔╝╚██╗██╔╝╚██╗██████╔╝██║░░░░░░░░██║░░░░░░██║░░░██████╔╝
 --╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝░░░░░░░░╚═╝░░░░░░╚═╝░░░╚═════╝░
 
---██╗░░░██╗░█████╗░░░░███████╗
---██║░░░██║██╔══██╗░░░██╔════╝
---╚██╗░██╔╝██║░░██║░░░██████╗░
---░╚████╔╝░██║░░██║░░░╚════██╗
---░░╚██╔╝░░╚█████╔╝██╗██████╔╝
---░░░╚═╝░░░░╚════╝░╚═╝╚═════╝░
+
+-- Sound asset ID
+local soundId = "rbxassetid://649548882"
+
+-- Function to play the sound with maximum loudness
+local function playButtonPressSound()
+    local sound = Instance.new("Sound")
+    sound.SoundId = soundId
+    sound.Volume = 3 -- Set the volume to 1 for maximum loudness
+    sound.Parent = game:GetService("SoundService") -- Play the sound using the SoundService
+    sound:Play()
+end
+
+-- Call the function whenever you want to play the sound
+playButtonPressSound()
+
+
+wait(0.7) 
 
 local StarterGui = game:GetService("StarterGui")
 
@@ -86,6 +98,7 @@ scrollingFrame.Parent = frame
 scrollingFrame.ZIndex = 51
 
 
+
 local textBox = Instance.new("TextBox")
 textBox.Size = UDim2.new(1, 0, 1, 0)
 textBox.Position = UDim2.new(0, 0, 0, 0)
@@ -97,6 +110,7 @@ textBox.BackgroundTransparency = 0.5
 textBox.TextSize = 20
 textBox.Text = ""
 textBox.ZIndex = 51
+
 
 
 local clearButton = Instance.new("TextButton")
@@ -124,6 +138,21 @@ game:GetService("LogService").MessageOut:Connect(handleLogMessage)
 
 
 
+local UserInputService = game:GetService("UserInputService")
+local SoundService = game:GetService("SoundService")
+
+-- Sound asset ID
+local soundId = "rbxassetid://766651550"
+
+-- Function to play the sound
+local function playButtonPressSound()
+    local sound = Instance.new("Sound")
+    sound.SoundId = soundId
+    sound.Volume = 3 -- Set the volume to 1 for maximum loudness
+    sound.Parent = SoundService
+    sound:Play()
+end
+
 local textBox = Instance.new("TextBox")
 textBox.Parent = screenGui
 textBox.Size = UDim2.new(0.3, 0, 0.1, 0)
@@ -132,6 +161,12 @@ textBox.BackgroundColor3 = Color3.new(1, 1, 1)
 textBox.PlaceholderText = "Type here..."
 textBox.Text = textBoxText
 textBox.ZIndex = 100
+
+-- Detect text change and play sound
+textBox:GetPropertyChangedSignal("Text"):Connect(function()
+    playButtonPressSound()
+end)
+
 
 
 local toggleButton = Instance.new("TextButton")
@@ -252,8 +287,16 @@ textBox.FocusLost:Connect(function(enterPressed)
             end
             
         elseif text == "killgui" then
-            
-            screenGui:Destroy()
+    local soundId = "rbxassetid://1843027458"
+    local sound = Instance.new("Sound")
+    sound.SoundId = soundId
+    sound.Volume = 10 -- Set the volume to maximum (10)
+    sound.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    sound:Play()
+
+   
+    screenGui:Destroy()
+
             
         elseif text == "bodyfling" then
             
@@ -994,7 +1037,7 @@ StarterGui:SetCore("SendNotification", notification)
         "F3x (Visual)", 
         "Touchinterests (gui)", 
         "R6", 
-        "Hitbox Expander", 
+        "Hitbox Expander (gui)", 
         "RTX Shader (gui)"
     }
     
@@ -1026,8 +1069,9 @@ end)
 wait(1) 
 
 local commands = {
-    "Added RTX Shader", 
-    "Updated Locatormp"
+    "Added Intro Audio", 
+    "Added Type SFX", 
+    "Updated Killgui Function"
     
 }
 
